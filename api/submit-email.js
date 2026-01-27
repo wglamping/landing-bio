@@ -1,27 +1,19 @@
-const fetch = require('node-fetch');
-
-exports.handler = async (event) => {
+export default async function handler(req, res) {
     // Only allow POST requests
-    if (event.httpMethod !== 'POST') {
-        return { 
-            statusCode: 405, 
-            body: JSON.stringify({ error: 'Method not allowed' }) 
-        };
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    // Get data from form
-    const { email, question, source } = JSON.parse(event.body);
+    // Get data from request body
+    const { email, question, source } = req.body;
 
     // Validate email exists
     if (!email) {
-        return { 
-            statusCode: 400, 
-            body: JSON.stringify({ error: 'Email is required' }) 
-        };
+        return res.status(400).json({ error: 'Email is required' });
     }
 
     try {
-        // Call MailerLite API (token is hidden in environment variable)
+        // Call MailerLite API
         const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
             method: 'POST',
             headers: {
@@ -32,7 +24,7 @@ exports.handler = async (event) => {
                 email: email,
                 groups: [process.env.MAILERLITE_GROUP_ID],
                 fields: {
-                    source: source,
+                    source: source || 'website',
                     property: 'bali_dome',
                     question: question || 'No question',
                     timestamp: new Date().toISOString()
@@ -43,19 +35,14 @@ exports.handler = async (event) => {
         const data = await response.json();
 
         if (response.ok) {
-            return {
-                statusCode: 200,
-                body: JSON.stringify({ success: true })
-            };
+            return res.status(200).json({ success: true, data });
         } else {
-            throw new Error('MailerLite API error');
+            console.error('MailerLite error:', data);
+            return res.status(500).json({ error: 'MailerLite API error', details: data });
         }
 
     } catch (error) {
         console.error('Error:', error);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'Failed to submit email' })
-        };
+        return res.status(500).json({ error: 'Failed to submit email' });
     }
-};
+}
