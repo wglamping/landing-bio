@@ -1731,6 +1731,12 @@
                 <input type="email" class="email-input" placeholder="Enter your email" required>
                 <button type="submit" class="btn-email">Get Private Access</button>
             </form>
+            <div class="success-message" id="emailCaptureSuccess" style="display: none;">
+                <div style="background: #1a3a2e; color: white; padding: 1.5rem 2rem; border-radius: 12px; text-align: center;">
+                    <p style="font-size: 1.5rem; margin: 0 0 0.5rem 0;">✓ You're In!</p>
+                    <p style="margin: 0; opacity: 0.9;">Check your email for private access details.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1848,6 +1854,12 @@
                         <textarea name="question" placeholder="Your question (optional)" rows="3"></textarea>
                         <button type="submit">Send Question</button>
                     </form>
+                    <div class="success-message" id="questionsFormSuccess" style="display: none;">
+                        <div style="background: #1a3a2e; color: white; padding: 1.5rem; border-radius: 12px; text-align: center;">
+                            <p style="font-size: 1.3rem; margin: 0 0 0.5rem 0;">✓ Got It!</p>
+                            <p style="margin: 0; opacity: 0.9; font-size: 0.95rem;">We'll respond within 2 hours.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- SMS/TEXT OPTION -->
@@ -1987,7 +1999,8 @@
         // Form submissions - MailerLite API
         function handleFormSubmit(e, source) {
             e.preventDefault();
-            const email = e.target.querySelector('input[type="email"]').value;
+            const form = e.target;
+            const email = form.querySelector('input[type="email"]').value;
             
             fetch('/api/submit-email', {
                 method: 'POST',
@@ -2002,12 +2015,15 @@
             .then(response => response.json())
             .then(() => {
                 if (source === 'exit_intent') {
-                    alert('Perfect! We\'ll notify you when quiet dates open up.');
-                    closeModal();
+                    document.querySelector('#exitModal .modal h3').textContent = '✓ You\'re On The List!';
+                    document.querySelector('#exitModal .modal p').textContent = 'We\'ll notify you when quiet dates open up.';
+                    document.querySelector('#exitModal .modal-form').style.display = 'none';
+                    setTimeout(closeModal, 2500);
                 } else {
-                    alert('Success! Check your email for private access details.');
+                    form.style.display = 'none';
+                    document.getElementById('emailCaptureSuccess').style.display = 'block';
                 }
-                e.target.reset();
+                form.reset();
                 
                 fbq('track', 'Lead', {
                     content_name: 'Email Capture',
@@ -2016,8 +2032,9 @@
             })
             .catch(err => {
                 console.error('Error:', err);
-                alert('Thanks! We\'ll be in touch soon.');
-                e.target.reset();
+                form.style.display = 'none';
+                document.getElementById('emailCaptureSuccess').style.display = 'block';
+                form.reset();
             });
         }
 
@@ -2032,8 +2049,9 @@
         // Questions form submission with question field
         document.getElementById('questionsEmailForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = e.target.querySelector('input[type="email"]').value;
-            const question = e.target.querySelector('textarea[name="question"]').value;
+            const form = e.target;
+            const email = form.querySelector('input[type="email"]').value;
+            const question = form.querySelector('textarea[name="question"]').value;
             
             fetch('/api/submit-email', {
                 method: 'POST',
@@ -2048,8 +2066,9 @@
             })
             .then(response => response.json())
             .then(() => {
-                alert('Got it! We\'ll respond within 2 hours with answers to your question.');
-                e.target.reset();
+                form.style.display = 'none';
+                document.getElementById('questionsFormSuccess').style.display = 'block';
+                form.reset();
                 
                 fbq('track', 'Lead', {
                     content_name: 'Questions Form',
@@ -2058,8 +2077,9 @@
             })
             .catch(err => {
                 console.error('Error:', err);
-                alert('Thanks for your question! We\'ll respond via email within 2 hours.');
-                e.target.reset();
+                form.style.display = 'none';
+                document.getElementById('questionsFormSuccess').style.display = 'block';
+                form.reset();
             });
         });
 
