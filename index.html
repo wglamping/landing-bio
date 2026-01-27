@@ -1409,6 +1409,29 @@
         .hover-lift:hover {
             transform: translateY(-3px);
         }
+
+        .site-footer {
+            background: var(--forest-deep);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .site-footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .site-footer a:hover {
+            color: var(--warm-sand);
+        }
+
+        .footer-separator {
+            margin: 0 0.5rem;
+            opacity: 0.5;
+        }
     </style>
 </head>
 <body>
@@ -1845,6 +1868,11 @@
             </p>
         </div>
     </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>© 2025 Wander Glamping<span class="footer-separator">·</span><a href="https://gowanderglamping.com/privacy-policy" target="_blank">Privacy Policy</a></p>
+    </footer>
 
     <!-- EXIT INTENT MODAL -->
     <div class="modal-overlay" id="exitModal">
