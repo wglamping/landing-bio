@@ -3,10 +3,20 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const { email, question, source } = req.body;
+    const { email, question, source, traffic_source } = req.body;
 
     if (!email) {
         return res.status(400).json({ error: 'Email is required' });
+    }
+
+    // Determine which group to add subscriber to
+    let groupId;
+    if (source === 'booking_intent') {
+        groupId = process.env.MAILERLITE_GROUP_BOOKING_INTENT;
+    } else if (traffic_source === 'meta_ads') {
+        groupId = process.env.MAILERLITE_GROUP_META_ADS;
+    } else {
+        groupId = process.env.MAILERLITE_GROUP_BIO;
     }
 
     try {
@@ -19,9 +29,10 @@ export default async function handler(req, res) {
             },
             body: JSON.stringify({
                 email: email,
-                groups: [process.env.MAILERLITE_GROUP_ID],
+                groups: [groupId],
                 fields: {
                     source: source || 'website',
+                    traffic_source: traffic_source || 'organic',
                     property: 'bali_dome',
                     timestamp: new Date().toISOString()
                 }
