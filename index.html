@@ -1358,6 +1358,147 @@
             gap: 1rem;
         }
 
+        /* Booking Intent Popup */
+        .booking-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .booking-popup-overlay.active {
+            display: flex;
+        }
+
+        .booking-popup {
+            background: var(--white);
+            max-width: 480px;
+            margin: 1.5rem;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .booking-popup-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .booking-popup h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--forest-deep);
+            margin-bottom: 0.75rem;
+        }
+
+        .booking-popup p {
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .booking-perks {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .booking-perk {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .booking-perk-icon {
+            font-size: 2rem;
+        }
+
+        .booking-perk-label {
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            opacity: 0.8;
+        }
+
+        .booking-popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .booking-popup-form input[type="email"] {
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--warm-sand);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: border-color 0.3s ease;
+        }
+
+        .booking-popup-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--forest-deep);
+        }
+
+        .booking-popup-form button {
+            background: var(--forest-deep);
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .booking-popup-form button:hover {
+            background: var(--forest-mid);
+            transform: translateY(-1px);
+        }
+
+        .booking-popup-skip {
+            color: var(--charcoal);
+            opacity: 0.6;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            background: none;
+            border: none;
+            text-decoration: underline;
+        }
+
+        .booking-popup-skip:hover {
+            opacity: 1;
+        }
+
+        .booking-popup-success {
+            display: none;
+        }
+
+        .booking-popup-success.show {
+            display: block;
+        }
+
+        .booking-popup-success h3 {
+            color: var(--forest-deep);
+        }
+
         @media (max-width: 768px) {
             .filter-grid {
                 grid-template-columns: 1fr;
@@ -1817,7 +1958,7 @@
 
                 <div class="faq-item fade-in-up">
                     <div class="faq-question">Do you allow pets?</div>
-                    <div class="faq-answer">We love pets! However, we keep the Bali Dome allergen-free so all guests can breathe easy.</div>
+                    <div class="faq-answer">We love pets! However, we keep the Bali Dome allergen-free so all guests can breathe easy. This means no pets inside the dome. If you're traveling with a furry friend, we're happy to recommend nearby pet-friendly accommodations.</div>
                 </div>
             </div>
         </div>
@@ -1885,6 +2026,46 @@
         </div>
     </div>
 
+    <!-- BOOKING INTENT POPUP -->
+    <div class="booking-popup-overlay" id="bookingPopup">
+        <div class="booking-popup">
+            <div id="bookingPopupContent">
+                <div class="booking-popup-icon">🎁</div>
+                <h3>Want a free welcome gift?</h3>
+                <p>Drop your email and we'll include a little something special with your stay.</p>
+                
+                <div class="booking-perks">
+                    <div class="booking-perk">
+                        <span class="booking-perk-icon">🍫</span>
+                        <span class="booking-perk-label">S'mores Kit</span>
+                    </div>
+                    <div class="booking-perk">
+                        <span class="booking-perk-icon">🧺</span>
+                        <span class="booking-perk-label">Snack Basket</span>
+                    </div>
+                    <div class="booking-perk">
+                        <span class="booking-perk-icon">✨</span>
+                        <span class="booking-perk-label">Surprise Extras</span>
+                    </div>
+                </div>
+
+                <form class="booking-popup-form" id="bookingPopupForm">
+                    <input type="email" name="email" placeholder="Your email" required>
+                    <button type="submit">Yes please!</button>
+                </form>
+                
+                <button class="booking-popup-skip" id="skipToBooking">No thanks, continue to booking →</button>
+            </div>
+
+            <div class="booking-popup-success" id="bookingPopupSuccess">
+                <div class="booking-popup-icon">🎉</div>
+                <h3>You're all set!</h3>
+                <p>Your welcome gift will be waiting. Now let's find your perfect dates...</p>
+                <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 1rem;">Redirecting to booking...</p>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ═══════════════════════════════════════════════════════════════════
         // PASTE YOUR CREDENTIALS HERE (3 THINGS TO REPLACE)
@@ -1895,6 +2076,106 @@
         
         // 2️⃣ MAILERLITE - Now handled by Vercel API Function (secure)
         // API token moved to environment variables for security
+
+        // 3️⃣ HOSPITABLE BOOKING URL
+        const BOOKING_URL = 'https://wanderglamping.hospitable.rentals/';
+        
+        // ═══════════════════════════════════════════════════════════════════
+        // UTM PARAMETER CAPTURE
+        // ═══════════════════════════════════════════════════════════════════
+        
+        function getUTMSource() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const utmSource = urlParams.get('utm_source');
+            const utmMedium = urlParams.get('utm_medium');
+            const utmCampaign = urlParams.get('utm_campaign');
+            
+            // Determine traffic source for email sequence routing
+            if (utmSource === 'facebook' || utmSource === 'meta' || utmMedium === 'paid') {
+                return 'meta_ads';
+            } else if (utmSource === 'instagram' || utmSource === 'tiktok' || utmMedium === 'bio') {
+                return 'bio_traffic';
+            } else {
+                return 'organic';
+            }
+        }
+        
+        const trafficSource = getUTMSource();
+
+        // ═══════════════════════════════════════════════════════════════════
+        // BOOKING POPUP FUNCTIONS
+        // ═══════════════════════════════════════════════════════════════════
+        
+        function openBookingPopup() {
+            document.getElementById('bookingPopup').classList.add('active');
+        }
+
+        function closeBookingPopup() {
+            document.getElementById('bookingPopup').classList.remove('active');
+        }
+
+        function goToBooking() {
+            closeBookingPopup();
+            window.open(BOOKING_URL, '_blank');
+        }
+
+        // Handle booking popup form submission
+        document.getElementById('bookingPopupForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const email = form.querySelector('input[type="email"]').value;
+            
+            fetch('/api/submit-email', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    email: email,
+                    source: 'booking_intent',
+                    traffic_source: trafficSource
+                })
+            })
+            .then(response => response.json())
+            .then(() => {
+                // Show success message
+                document.getElementById('bookingPopupContent').style.display = 'none';
+                document.getElementById('bookingPopupSuccess').classList.add('show');
+                
+                // Track the lead
+                fbq('track', 'Lead', {
+                    content_name: 'Booking Intent Popup',
+                    content_category: 'booking_intent'
+                });
+                
+                // Redirect to booking after 2 seconds
+                setTimeout(goToBooking, 2000);
+            })
+            .catch(err => {
+                console.error('Error:', err);
+                // Still redirect on error
+                setTimeout(goToBooking, 2000);
+            });
+        });
+
+        // Skip button - go directly to booking
+        document.getElementById('skipToBooking').addEventListener('click', () => {
+            goToBooking();
+        });
+
+        // Intercept all booking link clicks
+        document.querySelectorAll('a[href*="hospitable"], .btn-availability').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                openBookingPopup();
+                
+                // Track intent
+                fbq('track', 'InitiateCheckout', {
+                    content_name: 'Booking Button Click',
+                    content_category: 'CTA Click'
+                });
+            });
+        });
         
         // ═══════════════════════════════════════════════════════════════════
         // DO NOT EDIT BELOW THIS LINE
@@ -1995,7 +2276,8 @@
                 },
                 body: JSON.stringify({ 
                     email: email,
-                    source: source
+                    source: source,
+                    traffic_source: trafficSource
                 })
             })
             .then(response => response.json())
@@ -2047,7 +2329,8 @@
                 body: JSON.stringify({ 
                     email: email,
                     question: question,
-                    source: 'questions_form'
+                    source: 'questions_form',
+                    traffic_source: trafficSource
                 })
             })
             .then(response => response.json())
@@ -2077,16 +2360,6 @@
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-            });
-        });
-
-        // Track CTA clicks
-        document.querySelectorAll('.btn-primary, .btn-availability').forEach(btn => {
-            btn.addEventListener('click', () => {
-                fbq('track', 'InitiateCheckout', {
-                    content_name: btn.textContent.trim(),
-                    content_category: 'CTA Click'
-                });
             });
         });
     </script>
