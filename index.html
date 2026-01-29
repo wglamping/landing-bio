@@ -74,7 +74,6 @@
             background: var(--forest-deep);
         }
 
-        /* Base video styles */
         .hero-video {
             position: absolute;
             top: 50%;
@@ -84,7 +83,6 @@
             object-fit: cover;
         }
 
-        /* Desktop video - full width */
         .hero-video-desktop {
             min-width: 100%;
             min-height: 100%;
@@ -93,50 +91,42 @@
             display: block;
         }
 
-        /* Mobile video - hidden by default */
         .hero-video-mobile {
             display: none;
             width: 100%;
             height: 100%;
         }
 
-        /* Fallback image - hidden by default */
         .hero-fallback {
             display: none;
             width: 100%;
             height: 100%;
         }
 
-        /* MOBILE: Show mobile video, hide desktop */
         @media (max-width: 768px) {
             .hero-video-desktop {
                 display: none;
             }
-            
             .hero-video-mobile {
                 display: block;
             }
         }
 
-        /* VERY SMALL SCREENS: Show static image instead */
         @media (max-width: 480px) and (max-height: 667px) {
             .hero-video-desktop,
             .hero-video-mobile {
                 display: none;
             }
-            
             .hero-fallback {
                 display: block;
             }
         }
 
-        /* Ensure video doesn't exceed viewport on mobile */
         @media (max-width: 768px) {
             .hero {
                 min-height: 100vh;
                 height: 100vh;
             }
-            
             .hero-video-mobile {
                 max-height: 100vh;
                 width: 100vw;
@@ -243,12 +233,10 @@
             .authority-banner {
                 padding: 0.6rem 1rem;
             }
-
             .authority-banner-content {
                 font-size: 0.75rem;
                 gap: 1rem;
             }
-
             .authority-separator {
                 display: none;
             }
@@ -410,24 +398,6 @@
         .hero-secondary:hover {
             color: var(--white);
             border-bottom-color: var(--white);
-        }
-
-        .price-anchor {
-            margin-top: 2.5rem;
-            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.4s backwards;
-        }
-
-        .price-main {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.95);
-            letter-spacing: 0.03em;
-            margin-bottom: 0.5rem;
-        }
-
-        .price-sub {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-style: italic;
         }
 
         .scroll-indicator {
@@ -1114,14 +1084,6 @@
             border-top: 1px solid rgba(26, 58, 46, 0.1);
         }
 
-        .questions-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
         .question-option {
             background: var(--white);
             padding: 2rem;
@@ -1187,51 +1149,10 @@
             box-shadow: var(--shadow-medium);
         }
 
-        .btn-text-link {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--white);
-            color: var(--forest-deep);
-            border: 2px solid var(--forest-deep);
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-text-link:hover {
-            background: var(--forest-deep);
-            color: var(--white);
-        }
-
-        .device-instruction {
-            font-size: 0.85rem;
-            opacity: 0.6;
-            margin-top: 0.5rem;
-        }
-
-        .mobile-only {
-            display: none;
-        }
-
-        .desktop-only {
-            display: block;
-        }
-
         .pricing-reveal {
             background: linear-gradient(135deg, var(--cream) 0%, var(--warm-sand) 100%);
             text-align: center;
             padding: clamp(3rem, 8vw, 5rem) 2rem;
-        }
-
-        .pricing-box {
-            background: var(--white);
-            padding: 3rem 2rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow-soft);
-            max-width: 600px;
-            margin: 0 auto 2rem;
         }
 
         .price-large {
@@ -1240,33 +1161,6 @@
             color: var(--forest-deep);
             margin-bottom: 0.5rem;
             font-family: var(--font-display);
-        }
-
-        .price-subtitle {
-            font-size: 1.3rem;
-            color: var(--charcoal);
-            opacity: 0.8;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        @media (max-width: 768px) {
-            .questions-options {
-                grid-template-columns: 1fr;
-            }
-
-            .mobile-only {
-                display: block;
-            }
-
-            .desktop-only {
-                display: none;
-            }
         }
 
         .modal-overlay {
@@ -1358,7 +1252,6 @@
             gap: 1rem;
         }
 
-        /* Booking Intent Popup */
         .booking-popup-overlay {
             display: none;
             position: fixed;
@@ -1503,29 +1396,23 @@
             .filter-grid {
                 grid-template-columns: 1fr;
             }
-
             .email-form {
                 flex-direction: column;
             }
-
             .steps {
                 grid-template-columns: 1fr;
             }
-
             .furniture-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-
             .hero h1 {
                 font-size: 2rem;
             }
-
             .hero-features {
                 flex-direction: column;
                 gap: 0.5rem;
             }
-
             .hero-feature {
                 border-left: none;
                 padding: 0;
@@ -1578,7 +1465,6 @@
 <body>
     <!-- HERO SECTION -->
     <section class="hero">
-        <!-- AUTHORITY BANNER -->
         <div class="authority-banner">
             <div class="authority-banner-content">
                 <div class="authority-item">⭐ 4.96 Stars</div>
@@ -1589,17 +1475,14 @@
             </div>
         </div>
 
-        <!-- DESKTOP VIDEO (hidden on mobile) -->
         <video class="hero-video hero-video-desktop" autoplay loop muted playsinline webkit-playsinline>
             <source src="hero-video-desktop.mp4" type="video/mp4">
         </video>
 
-        <!-- MOBILE VIDEO (hidden on desktop) -->
         <video class="hero-video hero-video-mobile" autoplay loop muted playsinline webkit-playsinline>
             <source src="hero-video-mobile.mp4" type="video/mp4">
         </video>
 
-        <!-- FALLBACK: Static Image (if video fails to load) -->
         <img src="hero-fallback.jpg" alt="Bali Dome aerial view" class="hero-video hero-fallback" loading="eager">
 
         <div class="hero-content">
@@ -1633,7 +1516,7 @@
         <div class="string-lights-content">
             <h2>The Walk You'll Remember</h2>
             <p>Follow 300 feet of string lights as they wind from your private patio, through juniper and pine trees, leading you to your dome.</p>
-            <p>As dusk falls and the forest darkens around you, you’ll understand why guests call it magical.</p>
+            <p>As dusk falls and the forest darkens around you, you'll understand why guests call it magical.</p>
             
             <div class="string-lights-quote">
                 <p>"The dome at night is something special."</p>
@@ -1771,7 +1654,7 @@
                     
                     <p>The coffee table? An <strong>acacia trunk</strong>, preserved and polished to reveal decades of growth rings.</p>
                     
-                    <p>This isn’t furniture selected from a catalog. These are <strong>one-of-a-kind pieces</strong> that took months to source and ship from Bali—designed to last generations, not seasons.</p>
+                    <p>This isn't furniture selected from a catalog. These are <strong>one-of-a-kind pieces</strong> that took months to source and ship from Bali—designed to last generations, not seasons.</p>
                 </div>
             </div>
         </div>
@@ -1798,7 +1681,7 @@
                 <div class="step fade-in-up hover-lift">
                     <div class="step-number">3</div>
                     <h3>Leave Restored</h3>
-                    <p>You’ll leave feeling rested, grounded, and reset.</p>
+                    <p>You'll leave feeling rested, grounded, and reset.</p>
                 </div>
             </div>
         </div>
@@ -1828,7 +1711,7 @@
                         <li>You're planning a party or large gathering</li>
                         <li>You expect hotel-style services or on-site staff</li>
                         <li>You're looking for constant entertainment</li>
-			<li>You're traveling with pets</li>
+                        <li>You're traveling with pets</li>
                         <li>You're prioritizing price over experience</li>
                     </ul>
                 </div>
@@ -1893,7 +1776,7 @@
                         <span style="font-size: 0.95rem; opacity: 0.8;">(Updated weekly)</span>
                     </div>
                 </div>
-                <a href="https://wanderglamping.hospitable.rentals/" class="btn-availability">See Available Dates</a>
+                <a href="https://wanderglamping.hospitable.rentals/#availability" class="btn-availability">See Available Dates</a>
             </div>
         </div>
     </section>
@@ -1968,9 +1851,7 @@
     <section class="pricing-reveal">
         <div class="container" style="max-width: 800px;">
             <h2 class="section-title" style="margin-bottom: 1.5rem;">Ready to Experience It?</h2>
-            
             <p class="price-large" style="margin-bottom: 2rem;">Starting from $300 per night</p>
-            
             <a href="#availability" class="btn-primary">Check Availability</a>
         </div>
     </section>
@@ -1985,7 +1866,6 @@
                 </p>
             </div>
 
-            <!-- EMAIL FORM -->
             <div class="question-option fade-in-up" style="max-width: 500px; margin: 0 auto;">
                 <h3 style="text-align: center;">📧 Email Your Question</h3>
                 <p style="text-align: center;">We'll respond within 2 hours with thoughtful, detailed answers</p>
@@ -2068,16 +1948,10 @@
 
     <script>
         // ═══════════════════════════════════════════════════════════════════
-        // PASTE YOUR CREDENTIALS HERE (3 THINGS TO REPLACE)
+        // CONFIGURATION
         // ═══════════════════════════════════════════════════════════════════
         
-        // 1️⃣ FACEBOOK PIXEL ID - Get from Meta Events Manager
         const FACEBOOK_PIXEL_ID = '9865529503490887';
-        
-        // 2️⃣ MAILERLITE - Now handled by Vercel API Function (secure)
-        // API token moved to environment variables for security
-
-        // 3️⃣ HOSPITABLE BOOKING URL
         const BOOKING_URL = 'https://wanderglamping.hospitable.rentals/';
         
         // ═══════════════════════════════════════════════════════════════════
@@ -2088,9 +1962,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const utmSource = urlParams.get('utm_source');
             const utmMedium = urlParams.get('utm_medium');
-            const utmCampaign = urlParams.get('utm_campaign');
             
-            // Determine traffic source for email sequence routing
             if (utmSource === 'facebook' || utmSource === 'meta' || utmMedium === 'paid') {
                 return 'meta_ads';
             } else if (utmSource === 'instagram' || utmSource === 'tiktok' || utmMedium === 'bio') {
@@ -2116,7 +1988,8 @@
 
         function goToBooking() {
             closeBookingPopup();
-            window.open(BOOKING_URL, '_blank');
+            // FIXED: Use window.location.href instead of window.open to work on mobile Safari/Chrome
+            window.location.href = BOOKING_URL;
         }
 
         // Handle booking popup form submission
@@ -2127,9 +2000,7 @@
             
             fetch('/api/submit-email', {
                 method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
                     email: email,
                     source: 'booking_intent',
@@ -2138,22 +2009,18 @@
             })
             .then(response => response.json())
             .then(() => {
-                // Show success message
                 document.getElementById('bookingPopupContent').style.display = 'none';
                 document.getElementById('bookingPopupSuccess').classList.add('show');
                 
-                // Track the lead
                 fbq('track', 'Lead', {
                     content_name: 'Booking Intent Popup',
                     content_category: 'booking_intent'
                 });
                 
-                // Redirect to booking after 2 seconds
                 setTimeout(goToBooking, 2000);
             })
             .catch(err => {
                 console.error('Error:', err);
-                // Still redirect on error
                 setTimeout(goToBooking, 2000);
             });
         });
@@ -2169,7 +2036,6 @@
                 e.preventDefault();
                 openBookingPopup();
                 
-                // Track intent
                 fbq('track', 'InitiateCheckout', {
                     content_name: 'Booking Button Click',
                     content_category: 'CTA Click'
@@ -2178,10 +2044,9 @@
         });
         
         // ═══════════════════════════════════════════════════════════════════
-        // DO NOT EDIT BELOW THIS LINE
+        // FACEBOOK PIXEL
         // ═══════════════════════════════════════════════════════════════════
 
-        // Facebook Pixel Initialization
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -2198,12 +2063,11 @@
             content_category: 'Luxury Glamping'
         });
 
-        // Scroll-triggered animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // ═══════════════════════════════════════════════════════════════════
+        // ANIMATIONS & UI
+        // ═══════════════════════════════════════════════════════════════════
 
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -2211,7 +2075,6 @@
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 
         // FAQ Accordion
@@ -2219,12 +2082,8 @@
             question.addEventListener('click', () => {
                 const item = question.parentElement;
                 const wasActive = item.classList.contains('active');
-                
                 document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                
-                if (!wasActive) {
-                    item.classList.add('active');
-                }
+                if (!wasActive) item.classList.add('active');
             });
         });
 
@@ -2245,7 +2104,6 @@
             if (!modalShown) {
                 document.getElementById('exitModal').classList.add('active');
                 modalShown = true;
-                
                 fbq('track', 'ViewContent', {
                     content_name: 'Exit Intent Modal',
                     content_category: 'Engagement'
@@ -2258,12 +2116,13 @@
         }
 
         document.getElementById('exitModal').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) {
-                closeModal();
-            }
+            if (e.target === e.currentTarget) closeModal();
         });
 
-        // Form submissions - MailerLite API
+        // ═══════════════════════════════════════════════════════════════════
+        // FORM SUBMISSIONS
+        // ═══════════════════════════════════════════════════════════════════
+
         function handleFormSubmit(e, source) {
             e.preventDefault();
             const form = e.target;
@@ -2271,20 +2130,14 @@
             
             fetch('/api/submit-email', {
                 method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ 
-                    email: email,
-                    source: source,
-                    traffic_source: trafficSource
-                })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email, source: source, traffic_source: trafficSource })
             })
             .then(response => response.json())
             .then(() => {
                 if (source === 'exit_intent') {
-                    document.querySelector('#exitModal .modal h3').textContent = '✓ You\'re On The List!';
-                    document.querySelector('#exitModal .modal p').textContent = 'We\'ll notify you when quiet dates open up.';
+                    document.querySelector('#exitModal .modal h3').textContent = "✓ You're On The List!";
+                    document.querySelector('#exitModal .modal p').textContent = "We'll notify you when quiet dates open up.";
                     document.querySelector('#exitModal .modal-form').style.display = 'none';
                     setTimeout(closeModal, 2500);
                 } else {
@@ -2292,11 +2145,7 @@
                     document.getElementById('emailCaptureSuccess').style.display = 'block';
                 }
                 form.reset();
-                
-                fbq('track', 'Lead', {
-                    content_name: 'Email Capture',
-                    content_category: source
-                });
+                fbq('track', 'Lead', { content_name: 'Email Capture', content_category: source });
             })
             .catch(err => {
                 console.error('Error:', err);
@@ -2314,7 +2163,7 @@
             handleFormSubmit(e, 'exit_intent');
         });
 
-        // Questions form submission with question field
+        // Questions form
         document.getElementById('questionsEmailForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const form = e.target;
@@ -2323,26 +2172,15 @@
             
             fetch('/api/submit-email', {
                 method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ 
-                    email: email,
-                    question: question,
-                    source: 'questions_form',
-                    traffic_source: trafficSource
-                })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email, question: question, source: 'questions_form', traffic_source: trafficSource })
             })
             .then(response => response.json())
             .then(() => {
                 form.style.display = 'none';
                 document.getElementById('questionsFormSuccess').style.display = 'block';
                 form.reset();
-                
-                fbq('track', 'Lead', {
-                    content_name: 'Questions Form',
-                    content_category: 'questions_form'
-                });
+                fbq('track', 'Lead', { content_name: 'Questions Form', content_category: 'questions_form' });
             })
             .catch(err => {
                 console.error('Error:', err);
