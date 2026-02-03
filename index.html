@@ -291,10 +291,15 @@
 
         .hero h1 span:nth-child(1) { 
             animation-delay: 0.4s; 
-            font-size: 0.85em;
-            opacity: 0.95;
         }
-        .hero h1 span:nth-child(2) { animation-delay: 0.6s; }
+        .hero h1 span:nth-child(2) { 
+            animation-delay: 0.6s;
+            font-size: 0.55em;
+            opacity: 0.9;
+            font-weight: 400;
+            letter-spacing: 0;
+            margin-top: 0.5rem;
+        }
 
         .hero-features {
             display: flex;
@@ -423,6 +428,62 @@
             0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
             40% { transform: translateX(-50%) translateY(-10px); }
             60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Testimonial Strip */
+        .testimonial-strip {
+            background: var(--white);
+            padding: 3.5rem 2rem;
+            border-bottom: 1px solid rgba(26, 58, 46, 0.06);
+        }
+
+        .testimonial-strip-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .strip-quote {
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .strip-stars {
+            color: var(--gold);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            margin-bottom: 0.75rem;
+        }
+
+        .strip-quote p {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--charcoal);
+            margin-bottom: 0.6rem;
+        }
+
+        .strip-quote cite {
+            font-size: 0.9rem;
+            font-style: normal;
+            color: var(--sage);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-strip-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .strip-quote {
+                padding: 0;
+            }
+            .testimonial-strip {
+                padding: 2.5rem 2rem;
+            }
         }
 
         .string-lights-hero {
@@ -1438,6 +1499,75 @@
             transform: translateY(-3px);
         }
 
+        /* Floating Book Now Button */
+        .floating-book-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .floating-book-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .floating-book-btn a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1.1rem 2.2rem;
+            background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-mid) 100%);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 30px rgba(26, 58, 46, 0.35), 0 2px 8px rgba(0,0,0,0.15);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            letter-spacing: 0.02em;
+        }
+
+        .floating-book-btn a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(26, 58, 46, 0.45), 0 4px 12px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, var(--forest-mid) 0%, var(--forest-deep) 100%);
+        }
+
+        .floating-book-btn a::after {
+            content: '→';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-book-btn a:hover::after {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 768px) {
+            .floating-book-btn {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+            }
+            .floating-book-btn a {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+            .site-footer {
+                padding-bottom: 5rem;
+            }
+        }
+
         .site-footer {
             background: var(--forest-deep);
             color: rgba(255, 255, 255, 0.7);
@@ -1488,21 +1618,22 @@
         <div class="hero-content">
             <div class="location-badge">Paris, Texas • 90 Minutes from Dallas</div>
             <h1>
-                <span>A Bali-Inspired Escape</span>
-                <span>Set on 15 Private Acres</span>
+                <span>Bali Vibes. Texas Sky.</span>
+                <span>An 850 sq ft luxury dome on 15 private acres.</span>
             </h1>
             
             <div class="hero-features">
-                <div class="hero-feature">Texas's Largest Luxury Dome</div>
-                <div class="hero-feature">300 Feet of String Lights</div>
-                <div class="hero-feature">One-of-a-Kind Furniture</div>
+                <div class="hero-feature">Designed for Two. Room for Four.</div>
+                <div class="hero-feature">Hot Tub Under the Stars</div>
+                <div class="hero-feature">4.96★ from 50+ Guests</div>
             </div>
 
-            <p class="hero-subtitle">Just you, the Bali Dome, and the kind of silence you forgot existed.</p>
+            <p class="hero-subtitle">No neighbors. No distractions. Just you and the kind of quiet that changes something.</p>
             
             <div class="hero-cta">
                 <a href="#inside" class="btn-primary">See Inside</a>
-                <a href="#availability" class="hero-secondary">Check Availability</a>
+                <a href="#availability" class="hero-secondary">Book Now</a>
+                <span style="color: rgba(255,255,255,0.55); font-size: 0.82rem; font-weight: 400; letter-spacing: 0.03em; margin-top: 0.25rem;">Starting from $300/night · 2-night minimum</span>
             </div>
         </div>
 
@@ -1514,13 +1645,34 @@
         <img src="string-lights-background.png" alt="String lights at dusk" class="string-lights-bg">
         
         <div class="string-lights-content">
-            <h2>The Walk You'll Remember</h2>
-            <p>Follow 300 feet of string lights as they wind from your private patio, through juniper and pine trees, leading you to your dome.</p>
-            <p>As dusk falls and the forest darkens around you, you'll understand why guests call it magical.</p>
+            <h2>The Moment It Hits You</h2>
+            <p>You'll feel it on the walk in. Three hundred feet of string lights wind through juniper and pine, leading you away from everything you came here to escape.</p>
+            <p>By the time you reach the dome, your shoulders have dropped. Your phone is forgotten in your pocket. And you realize: this is what you came for.</p>
             
             <div class="string-lights-quote">
-                <p>"The dome at night is something special."</p>
+                <p>"We knew within five minutes this was exactly what we needed."</p>
                 <cite>— Couple's Escape</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL STRIP -->
+    <section class="testimonial-strip">
+        <div class="testimonial-strip-inner">
+            <div class="strip-quote fade-in-up">
+                <div class="strip-stars">★★★★★</div>
+                <p>"Hand's down the best Airbnb experience we've ever had."</p>
+                <cite>— Cassie</cite>
+            </div>
+            <div class="strip-quote fade-in-up">
+                <div class="strip-stars">★★★★★</div>
+                <p>"Falling asleep to rain on the dome was unforgettable."</p>
+                <cite>— Patrick</cite>
+            </div>
+            <div class="strip-quote fade-in-up">
+                <div class="strip-stars">★★★★★</div>
+                <p>"An unforgettable anniversary stay. We felt celebrated."</p>
+                <cite>— Tatiana</cite>
             </div>
         </div>
     </section>
@@ -1529,15 +1681,17 @@
     <section class="section what-makes-different" id="experience">
         <div class="container">
             <div class="section-intro fade-in-up">
-                <h2 class="section-title">Not your average escape</h2>
+                <h2 class="section-title">What If You Actually Rested?</h2>
                 <div class="section-body">
-                    <p>While most glamping involves compromise, this does not.</p>
+                    <p>Not scrolled-in-bed rest. Not "vacation but still checking email" rest. <strong>Real rest.</strong> The kind where you finally stop running the mental checklist.</p>
                     
-                    <p><strong>18-foot bay windows</strong> frame an uninterrupted forest view. A <strong>20-foot vaulted ceiling</strong> opens to the stars through a retractable electric sunroof. Every surface—from the <strong>9-foot acacia sofa carved from a single slab</strong> to the handcrafted <strong>zellige tile</strong>—was chosen for how it feels, not just how it looks.</p>
+                    <p><strong>Wake up slowly.</strong> Eighteen feet of windows face nothing but forest. No alarms. No checkout pressure. Just light filtering through pine trees and a 20-foot ceiling that opens to the sky through a retractable sunroof.</p>
                     
-                    <p>The details matter: a Japanese smart toilet. A rainfall shower. A hot tub that steams under the stars. A Solo Stove fire pit surrounded by silence. <strong>Starlink internet</strong> (because unplugging should be a choice, not a requirement).</p>
+                    <p><strong>Do nothing, beautifully.</strong> Sink into furniture carved from single slabs of Indonesian hardwood. Soak in the hot tub as steam rises into the stars. Fall asleep listening to rain on the dome.</p>
                     
-                    <p>This isn't camping with amenities. <strong>It's architecture that happens to be in nature.</strong></p>
+                    <p><strong>Stay connected (or don't).</strong> Starlink delivers real high-speed internet throughout the property. Work remotely if you want. Or leave your laptop in the car and forget what day it is.</p>
+
+                    <p>This isn't camping with nice sheets. <strong>It's what happens when someone builds a place specifically designed to help you exhale.</strong></p>
                 </div>
                 
                 <div style="margin-top: 2rem;">
@@ -1580,7 +1734,7 @@
             </div>
 
             <p style="text-align: center; font-family: var(--font-display); font-size: 1.05rem; font-style: italic; color: var(--sage); margin-top: 2rem; opacity: 0.8;">
-                Every stay is private. Every detail is intentional.
+                Every stay is private. Every detail is intentional. Every guest leaves different than they arrived.
             </p>
         </div>
     </section>
@@ -1589,8 +1743,8 @@
     <section class="section signature-details">
         <div class="container">
             <div class="section-intro fade-in-up">
-                <h2 class="section-title">The Details You'll Notice</h2>
-                <p class="section-subtitle">1,250 square feet of thoughtfully designed space</p>
+                <h2 class="section-title">Everything Here Earns Its Place</h2>
+                <p class="section-subtitle">Every detail was chosen for how it makes you feel—not just how it photographs</p>
             </div>
 
             <div class="details-grid">
@@ -1639,7 +1793,7 @@
     <section class="section furniture-story">
         <div class="container">
             <div class="section-intro fade-in-up">
-                <h2 class="section-title">Furniture You Won't Find Anywhere Else</h2>
+                <h2 class="section-title">You'll Want to Take This Home</h2>
             </div>
 
             <div class="furniture-content">
@@ -1648,13 +1802,13 @@
                 </div>
 
                 <div class="furniture-text fade-in-up">
-                    <p>The centerpiece of the 400 sq ft patio is a <strong>9-foot acacia sofa</strong>—carved from a single slab of Indonesian hardwood. No joins, no seams. One tree, one piece of furniture.</p>
+                    <p>There's a moment every guest has. You sink into the patio sofa—<strong>nine feet of acacia carved from a single tree</strong>—and something shifts. You run your hand across the grain and realize this isn't like anything you've sat on before.</p>
                     
-                    <p>It was shaped and finished by skilled craftsmen over weeks of careful work.</p>
+                    <p>That's because it isn't. These pieces took months to source from Indonesian artisans. Weeks to carve. They exist only here.</p>
                     
-                    <p>The coffee table? An <strong>acacia trunk</strong>, preserved and polished to reveal decades of growth rings.</p>
+                    <p>The coffee table still shows its <strong>growth rings</strong>—decades of a tree's life, preserved and polished, now holding your morning coffee.</p>
                     
-                    <p>This isn't furniture selected from a catalog. These are <strong>one-of-a-kind pieces</strong> that took months to source and ship from Bali—designed to last generations, not seasons.</p>
+                    <p>You can't take them home. But you'll remember how they made you feel.</p>
                 </div>
             </div>
         </div>
@@ -1670,18 +1824,18 @@
             <div class="steps">
                 <div class="step fade-in-up hover-lift">
                     <div class="step-number">1</div>
-                    <h3>Book Your Dates</h3>
-                    <p>Check availability and reserve your private escape for up to 4 guests. A two-night minimum allows enough time to slow down and settle in.</p>
+                    <h3>Choose Your Dates</h3>
+                    <p>Check what's open. Book in two minutes. That's it—no phone calls, no back-and-forth. A two-night minimum lets you actually settle in.</p>
                 </div>
                 <div class="step fade-in-up hover-lift">
                     <div class="step-number">2</div>
-                    <h3>Arrive and Unwind</h3>
-                    <p>Self check-in. Follow the string lights to your dome. Everything is ready, from firewood to a fully stocked kitchen. No rushing. No interruptions.</p>
+                    <h3>Arrive and Exhale</h3>
+                    <p>Self check-in means no awkward key handoffs. Follow the string lights to your dome. Everything is ready—firewood, a stocked kitchen, and a welcome gift waiting inside.</p>
                 </div>
                 <div class="step fade-in-up hover-lift">
                     <div class="step-number">3</div>
-                    <h3>Leave Restored</h3>
-                    <p>You'll leave feeling rested, grounded, and reset.</p>
+                    <h3>Leave Changed</h3>
+                    <p>Guests don't say "that was nice." They say "I needed that more than I realized." That's the difference.</p>
                 </div>
             </div>
         </div>
@@ -1723,7 +1877,7 @@
     <section class="section social-proof">
         <div class="container">
             <div class="section-intro fade-in-up">
-                <h2 class="section-title">Why Guests Keep Coming Back</h2>
+                <h2 class="section-title">What Guests Say</h2>
                 <p class="proof-stat">Top 5% of Most Loved Homes · 4.96★ Average · Airbnb Superhost</p>
             </div>
 
@@ -1750,10 +1904,11 @@
     <!-- EMAIL CAPTURE -->
     <section class="email-capture">
         <div class="email-capture-inner fade-in-up">
-            <h3>Want a private look at availability, cancellations, and quiet weekday openings?</h3>
+            <h3>Not ready to book?</h3>
+            <p style="font-size: 1.1rem; color: var(--charcoal); opacity: 0.85; margin-bottom: 0.5rem;">Get first notice when dates open up—including last-minute cancellations and quiet weekday openings. No spam. Just availability.</p>
             <form class="email-form" id="emailCaptureForm">
                 <input type="email" class="email-input" placeholder="Enter your email" required>
-                <button type="submit" class="btn-email">Get Private Access</button>
+                <button type="submit" class="btn-email">Notify Me</button>
             </form>
             <div class="success-message" id="emailCaptureSuccess" style="display: none;">
                 <div style="background: #1a3a2e; color: white; padding: 1.5rem 2rem; border-radius: 12px; text-align: center;">
@@ -1768,15 +1923,15 @@
     <section class="section availability" id="availability">
         <div class="container">
             <div class="section-intro fade-in-up">
-                <h2 class="section-title">Check Available Dates</h2>
+                <h2 class="section-title">Ready?</h2>
                 <div class="availability-body">
-                    <p style="font-size: 1.15rem;">We host a limited number of stays each month to preserve privacy and quiet. Dates tend to fill quickly, especially on weekends.</p>
+                    <p style="font-size: 1.15rem;">We keep availability limited—quiet matters more than full calendars. Weekends fill first. Weekdays are where the real rest happens.</p>
                     <div class="scarcity-indicator">
                         Currently: 3 dates available in February · 8 dates in March<br>
                         <span style="font-size: 0.95rem; opacity: 0.8;">(Updated weekly)</span>
                     </div>
                 </div>
-                <a href="https://wanderglamping.hospitable.rentals/#availability" class="btn-availability">See Available Dates</a>
+                <a href="https://wanderglamping.hospitable.rentals/#availability" class="btn-availability">See What's Open</a>
             </div>
         </div>
     </section>
@@ -1843,6 +1998,11 @@
                     <div class="faq-question">Do you allow pets?</div>
                     <div class="faq-answer">We love pets! However, we keep the Bali Dome allergen-free so all guests can breathe easy. This means no pets inside the dome. If you're traveling with a furry friend, we're happy to recommend nearby pet-friendly accommodations.</div>
                 </div>
+
+                <div class="faq-item fade-in-up">
+                    <div class="faq-question">What if we need to grab something?</div>
+                    <div class="faq-answer">Paris is 10–15 minutes away with grocery stores, restaurants, gas stations, and everything else you might need. But most guests stock up before arriving and never leave the property—that's kind of the point.</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1850,9 +2010,9 @@
     <!-- PRICING REVEAL -->
     <section class="pricing-reveal">
         <div class="container" style="max-width: 800px;">
-            <h2 class="section-title" style="margin-bottom: 1.5rem;">Ready to Experience It?</h2>
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">Worth It?</h2>
             <p class="price-large" style="margin-bottom: 2rem;">Starting from $300 per night</p>
-            <a href="#availability" class="btn-primary">Check Availability</a>
+            <a href="#availability" class="btn-primary">Book Now</a>
         </div>
     </section>
 
@@ -1888,20 +2048,25 @@
         </div>
     </section>
 
+    <!-- FLOATING BOOK NOW BUTTON -->
+    <div class="floating-book-btn" id="floatingBookBtn">
+        <a href="https://wanderglamping.hospitable.rentals/#availability">Book Now</a>
+    </div>
+
     <!-- FOOTER -->
     <footer class="site-footer">
-        <p>© 2025 Wander Glamping<span class="footer-separator">·</span><a href="https://gowanderglamping.com/privacy-policy" target="_blank">Privacy Policy</a></p>
+        <p>© 2026 Wander Glamping<span class="footer-separator">·</span><a href="https://gowanderglamping.com/privacy-policy" target="_blank">Privacy Policy</a></p>
     </footer>
 
     <!-- EXIT INTENT MODAL -->
     <div class="modal-overlay" id="exitModal">
         <div class="modal">
             <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
-            <h3>Before You Go</h3>
-            <p>Most guests book 2–6 weeks after their first visit.<br><br>Get a short note when quiet dates open up—including last-minute cancellations and weekday availability.</p>
+            <h3>Still thinking?</h3>
+            <p>Most people take a few weeks before they book. That's fine.<br><br>We'll let you know when good dates open up—including last-minute cancellations and quiet weekdays.</p>
             <form class="modal-form" id="exitModalForm">
                 <input type="email" class="email-input" placeholder="Enter your email" required>
-                <button type="submit" class="btn-email">Notify Me</button>
+                <button type="submit" class="btn-email">Keep Me Posted</button>
             </form>
         </div>
     </div>
@@ -2198,6 +2363,37 @@
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
+            });
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // FLOATING BOOK NOW BUTTON
+        // ═══════════════════════════════════════════════════════════════════
+
+        const floatingBtn = document.getElementById('floatingBookBtn');
+        let lastScrollY = 0;
+
+        function handleFloatingBtn() {
+            const scrollY = window.scrollY || window.pageYOffset;
+            
+            if (scrollY > 200) {
+                floatingBtn.classList.add('visible');
+            } else {
+                floatingBtn.classList.remove('visible');
+            }
+            lastScrollY = scrollY;
+        }
+
+        window.addEventListener('scroll', handleFloatingBtn, { passive: true });
+        handleFloatingBtn();
+
+        // Intercept floating button click to show booking popup
+        floatingBtn.querySelector('a').addEventListener('click', (e) => {
+            e.preventDefault();
+            openBookingPopup();
+            fbq('track', 'InitiateCheckout', {
+                content_name: 'Floating Book Button',
+                content_category: 'CTA Click'
             });
         });
     </script>
