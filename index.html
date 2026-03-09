@@ -748,6 +748,13 @@
             border-bottom: 1px solid rgba(26, 58, 46, 0.06);
         }
 
+        /* Hide on desktop — hero social proof covers this. Show on mobile where hero quotes are hidden */
+        @media (min-width: 769px) {
+            .testimonial-strip {
+                display: none;
+            }
+        }
+
         .testimonial-strip-inner {
             max-width: 1200px;
             margin: 0 auto;
@@ -1353,6 +1360,251 @@
             font-size: 0.95rem;
             opacity: 0.7;
             font-style: italic;
+        }
+
+        /* Instagram / Guest Content Carousel */
+        .ugc-section {
+            background: var(--cream);
+            padding: 4rem 0;
+            overflow: hidden;
+        }
+
+        .ugc-section-header {
+            text-align: center;
+            padding: 0 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .ugc-section-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 500;
+            color: var(--forest-deep);
+            margin-bottom: 0.5rem;
+        }
+
+        .ugc-section-header p {
+            color: var(--charcoal);
+            opacity: 0.7;
+            font-size: 1rem;
+        }
+
+        .ugc-carousel-track {
+            display: flex;
+            gap: 1.25rem;
+            padding: 0 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .ugc-carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .ugc-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .ugc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .ugc-card-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .ugc-card-footer {
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ugc-card-handle {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--forest-deep);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .ugc-card-handle:hover {
+            color: var(--terracotta);
+        }
+
+        .ugc-card-ig-icon {
+            font-size: 1.1rem;
+            opacity: 0.4;
+        }
+
+        @media (max-width: 768px) {
+            .ugc-section {
+                padding: 3rem 0;
+            }
+            .ugc-card {
+                flex: 0 0 260px;
+            }
+            .ugc-carousel-track {
+                padding: 0 1.25rem;
+                gap: 1rem;
+            }
+        }
+
+        /* How to Get Here / Distance Section */
+        .distance-section {
+            background: var(--forest-deep);
+            padding: 3.5rem 2rem;
+            text-align: center;
+        }
+
+        .distance-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 500;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .distance-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .distance-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .distance-item {
+            text-align: center;
+        }
+
+        .distance-time {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--gold);
+            line-height: 1.2;
+        }
+
+        .distance-city {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-top: 0.3rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .distance-section {
+                padding: 2.5rem 1.25rem;
+            }
+            .distance-grid {
+                gap: 1.5rem 2.5rem;
+            }
+            .distance-time {
+                font-size: 1.3rem;
+            }
+            .distance-city {
+                font-size: 0.8rem;
+            }
+        }
+
+        .distance-address {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .distance-address a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .distance-address a:hover {
+            color: var(--gold);
+        }
+
+        /* Mid-Page Booking CTA */
+        .mid-cta {
+            background: var(--forest-deep);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .mid-cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .mid-cta-text {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-mid-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.2rem 3rem;
+            background: var(--white);
+            color: var(--forest-deep);
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-mid-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-mid-cta::after {
+            content: '→';
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-mid-cta:hover::after {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .mid-cta {
+                padding: 2.5rem 1.25rem;
+            }
+            .mid-cta-text {
+                font-size: 1rem;
+            }
+            .btn-mid-cta {
+                padding: 1rem 2.5rem;
+                font-size: 1rem;
+            }
         }
 
         .email-capture {
@@ -2260,7 +2512,7 @@
             <div class="location-badge">Paris, Texas • 90 Minutes from Dallas</div>
             <h1>
                 <span>Bali Vibes. Texas Sky.</span>
-                <span>An 850 sq ft luxury dome on 15 private acres.</span>
+                <span>Texas's largest luxury glamping dome. 850 sq ft on 15 private acres.</span>
             </h1>
             
             <div class="hero-features">
@@ -2269,10 +2521,10 @@
                 <div class="hero-feature">4.96★ from 100+ Guests</div>
             </div>
 
-            <p class="hero-subtitle">No neighbors. No distractions. Just you and the kind of quiet that changes something.</p>
+            <p class="hero-subtitle">No neighbors. No distractions. Just 15 acres of stillness and a dome built for the kind of rest you actually need.</p>
             
             <div class="hero-cta">
-                <a href="https://wanderglamping.hospitable.rentals/#availability" class="btn-primary">Book Now</a>
+                <a href="https://wanderglamping.hospitable.rentals/#availability" class="btn-primary">Check Availability</a>
                 <a href="#inside" class="hero-secondary">See Inside</a>
                 <span style="color: rgba(255,255,255,0.55); font-size: 0.82rem; font-weight: 400; letter-spacing: 0.03em; margin-top: 0.25rem;">Starting from $300/night</span>
             </div>
@@ -2300,22 +2552,6 @@
         </div>
 
         <div class="scroll-indicator"></div>
-    </section>
-
-    <!-- STRING LIGHTS HERO SECTION -->
-    <section class="string-lights-hero" id="inside">
-        <img src="string-lights-background.png" alt="String lights at dusk" class="string-lights-bg">
-        
-        <div class="string-lights-content">
-            <h2>The Moment It Hits You</h2>
-            <p>You'll feel it on the walk in. Three hundred feet of string lights wind through juniper and pine, leading you away from everything you came here to escape.</p>
-            <p>By the time you reach the dome, your shoulders have dropped. Your phone is forgotten in your pocket. And you realize: this is what you came for.</p>
-            
-            <div class="string-lights-quote">
-                <p>"We knew within five minutes this was exactly what we needed."</p>
-                <cite>— Couple's Escape</cite>
-            </div>
-        </div>
     </section>
 
     <!-- TESTIMONIAL STRIP -->
@@ -2350,6 +2586,7 @@
         </p>
     </div>
 
+
     <!-- QUICK-SCAN ICON STRIP -->
     <section class="icon-strip">
         <div class="icon-strip-inner">
@@ -2365,28 +2602,8 @@
         </div>
     </section>
 
-    <!-- WHAT MAKES IT DIFFERENT -->
-    <section class="section what-makes-different" id="experience">
-        <div class="container">
-            <div class="section-intro fade-in-up">
-                <h2 class="section-title">What If You Actually Rested?</h2>
-                <div class="section-body">
-                    <p>Not scrolled-in-bed rest. Not "vacation but still checking email" rest. <strong>Real rest.</strong> The kind where you finally stop running the mental checklist.</p>
-                    
-                    <p>Wake up to eighteen feet of windows facing nothing but forest. Sink into furniture carved from single slabs of Indonesian hardwood. Soak in the hot tub as steam rises into the stars. Fall asleep listening to rain on the dome. This isn't camping with nice sheets — <strong>it's what happens when someone builds a place specifically designed to help you exhale.</strong></p>
-                </div>
-                
-                <div style="margin-top: 2rem;">
-                    <span class="highlight-stat">850 sq ft living space</span>
-                    <span class="highlight-stat">400 sq ft teak patio</span>
-                    <span class="highlight-stat">1,250 sq ft total</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- IMAGE GRID -->
-    <section class="section" id="photos" style="padding-top: 2rem;">
+    <section class="section" id="inside" style="padding-top: 2rem;">
         <div class="container">
             <div class="image-grid fade-in-up">
                 <div class="image-card hover-lift">
@@ -2416,10 +2633,41 @@
             </div>
 
             <p style="text-align: center; font-family: var(--font-display); font-size: 1.05rem; font-style: italic; color: var(--sage); margin-top: 2rem; opacity: 0.8;">
-                Every stay is private. Every detail is intentional. Every guest leaves different than they arrived.
+                Every stay is private. Every detail is intentional. Every photo is exactly what you'll find when you arrive.
             </p>
         </div>
     </section>
+
+
+    <!-- WHAT MAKES IT DIFFERENT -->
+    <section class="section what-makes-different" id="experience">
+        <div class="container">
+            <div class="section-intro fade-in-up">
+                <h2 class="section-title">What If You Actually Rested?</h2>
+                <div class="section-body">
+                    <p>Not scrolled-in-bed rest. Not "vacation but still checking email" rest. <strong>Real rest.</strong> The kind where you finally stop running the mental checklist.</p>
+                    
+                    <p>Wake up to eighteen feet of windows facing nothing but forest. Sink into furniture carved from single slabs of Indonesian hardwood. Soak in the hot tub as steam rises into the stars. Fall asleep listening to rain on the dome. This isn't camping with nice sheets — <strong>it's what happens when someone builds a place specifically designed to help you exhale.</strong></p>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <span class="highlight-stat">850 sq ft living space</span>
+                    <span class="highlight-stat">400 sq ft teak patio</span>
+                    <span class="highlight-stat">1,250 sq ft total</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- MID-PAGE BOOKING CTA -->
+    <section class="mid-cta">
+        <div class="mid-cta-inner">
+            <p class="mid-cta-text">Private hot tub. 15 acres. 90 minutes from Dallas.</p>
+            <a href="https://wanderglamping.hospitable.rentals/#availability" class="btn-mid-cta">Check Availability</a>
+        </div>
+    </section>
+
 
     <!-- SIGNATURE DETAILS -->
     <section class="section signature-details">
@@ -2471,6 +2719,7 @@
         </div>
     </section>
 
+
     <!-- FURNITURE STORY -->
     <section class="section furniture-story">
         <div class="container">
@@ -2487,11 +2736,24 @@
                     <p>There's a moment every guest has. You sink into the patio sofa—<strong>nine feet of acacia carved from a single tree</strong>—and something shifts. You run your hand across the grain and realize this isn't like anything you've sat on before.</p>
                     
                     <p>That's because it isn't. These pieces took months to source from Indonesian artisans. Weeks to carve. They exist only here.</p>
-                    
-                    <p>The coffee table still shows its <strong>growth rings</strong>—decades of a tree's life, preserved and polished, now holding your morning coffee.</p>
-                    
-                    <p>You can't take them home. But you'll remember how they made you feel.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- STRING LIGHTS HERO SECTION -->
+    <section class="string-lights-hero">
+        <img src="string-lights-background.png" alt="String lights at dusk" class="string-lights-bg">
+        
+        <div class="string-lights-content">
+            <h2>The Moment It Hits You</h2>
+            <p>You'll feel it on the walk in. Three hundred feet of string lights wind through juniper and pine, leading you away from everything you came here to escape.</p>
+            <p>By the time you reach the dome, your shoulders have dropped. Your phone is forgotten in your pocket. And you realize: this is what you came for.</p>
+            
+            <div class="string-lights-quote">
+                <p>"We knew within five minutes this was exactly what we needed."</p>
+                <cite>— Couple's Escape</cite>
             </div>
         </div>
     </section>
@@ -2507,7 +2769,7 @@
                 <div class="step fade-in-up hover-lift">
                     <div class="step-number">1</div>
                     <h3>Choose Your Dates</h3>
-                    <p>Check what's open. Book in two minutes. That's it—no phone calls, no back-and-forth. A two-night minimum lets you actually settle in.</p>
+                    <p>Check what's open. Book in two minutes. That's it — no phone calls, no back-and-forth. Most guests stay two nights or more to fully settle in.</p>
                 </div>
                 <div class="step fade-in-up hover-lift">
                     <div class="step-number">2</div>
@@ -2516,12 +2778,13 @@
                 </div>
                 <div class="step fade-in-up hover-lift">
                     <div class="step-number">3</div>
-                    <h3>Leave Changed</h3>
-                    <p>Guests don't say "that was nice." They say "I needed that more than I realized." That's the difference.</p>
+                    <h3>Leave Rested</h3>
+                    <p>Guests don't say "that was nice." They say "I needed that more than I realized." That's what two nights of real quiet does.</p>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- GUEST FILTERING -->
     <section class="section filter-section">
@@ -2555,6 +2818,7 @@
         </div>
     </section>
 
+
     <!-- EMAIL CAPTURE -->
     <section class="email-capture">
         <div class="email-capture-inner fade-in-up">
@@ -2572,6 +2836,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- FAQ -->
     <section class="section faq">
@@ -2644,6 +2909,35 @@
         </div>
     </section>
 
+
+    <!-- HOW TO GET HERE -->
+    <section class="distance-section">
+        <h2>How to Get Here</h2>
+        <p class="distance-subtitle">Paris, Texas — closer than you think</p>
+        <div class="distance-grid">
+            <div class="distance-item">
+                <div class="distance-time">1.5 hrs</div>
+                <div class="distance-city">Dallas</div>
+            </div>
+            <div class="distance-item">
+                <div class="distance-time">3 hrs</div>
+                <div class="distance-city">Oklahoma City</div>
+            </div>
+            <div class="distance-item">
+                <div class="distance-time">3.5 hrs</div>
+                <div class="distance-city">Austin</div>
+            </div>
+            <div class="distance-item">
+                <div class="distance-time">4 hrs</div>
+                <div class="distance-city">Houston</div>
+            </div>
+        </div>
+        <div class="distance-address">
+            <a href="https://maps.app.goo.gl/xtnGx5cdZQEFL4WQ6" target="_blank" rel="noopener">10245 Farm To Market Rd 1497, Paris, TX 75462 → View on Google Maps</a>
+        </div>
+    </section>
+
+
     <!-- STILL HAVE QUESTIONS SECTION -->
     <section class="section questions-cta" id="questions">
         <div class="container" style="max-width: 600px;">
@@ -2656,7 +2950,7 @@
 
             <div class="question-option fade-in-up" style="max-width: 500px; margin: 0 auto;">
                 <h3 style="text-align: center;">📧 Email Your Question</h3>
-                <p style="text-align: center;">We'll respond within 2 hours with thoughtful, detailed answers</p>
+                <p style="text-align: center;">We're highly responsive and will get back to you quickly with thoughtful, detailed answers</p>
                 <form class="questions-form" id="questionsEmailForm">
                     <input type="email" name="email" placeholder="Your email" required>
                     <textarea name="question" placeholder="Your question (optional)" rows="3"></textarea>
@@ -2665,7 +2959,7 @@
                 <div class="success-message" id="questionsFormSuccess" style="display: none;">
                     <div style="background: #1a3a2e; color: white; padding: 1.5rem; border-radius: 12px; text-align: center;">
                         <p style="font-size: 1.3rem; margin: 0 0 0.5rem 0; color: white;">✓ Got It!</p>
-                        <p style="margin: 0; opacity: 0.9; font-size: 0.95rem; color: white;">We'll respond within 2 hours.</p>
+                        <p style="margin: 0; opacity: 0.9; font-size: 0.95rem; color: white;">We'll get back to you shortly.</p>
                     </div>
                 </div>
             </div>
@@ -2675,6 +2969,7 @@
             </p>
         </div>
     </section>
+
 
     <!-- LIGHTBOX GALLERY -->
     <div class="lightbox-overlay" id="lightbox">
@@ -2690,7 +2985,7 @@
 
     <!-- FLOATING BOOK NOW BUTTON -->
     <div class="floating-book-btn" id="floatingBookBtn">
-        <a href="https://wanderglamping.hospitable.rentals/#availability">Book Now</a>
+        <a href="https://wanderglamping.hospitable.rentals/#availability">Check Availability</a>
     </div>
 
     <!-- FOOTER -->
@@ -2706,11 +3001,11 @@
             <button class="modal-close" onclick="closeGiveaway()" aria-label="Close">&times;</button>
             <div id="giveawayContent">
                 <div class="giveaway-icon">✦</div>
-                <h3>Your Escape Might Be on Us</h3>
-                <p>We periodically draw a name from our list and gift them a complimentary glamping stay. Enter below and we'll let you know if it's you.</p>
+                <h3>Win a Free Stay</h3>
+                <p>One lucky winner. One complimentary night at the Bali Dome. Hot tub, string lights, 15 acres of quiet — on us.</p>
                 <form class="giveaway-form" id="giveawayForm">
                     <input type="email" name="email" placeholder="Your email" required>
-                    <button type="submit">Enter the Drawing</button>
+                    <button type="submit">Count Me In</button>
                 </form>
                 <p class="giveaway-disclaimer">No spam. Just a heads-up if you win, plus occasional updates from the property.</p>
             </div>
@@ -2787,10 +3082,10 @@
             if (e.target === e.currentTarget) closeGiveaway();
         });
 
-        // Show giveaway popup after 2 seconds (only once per 7 days)
+        // Show giveaway popup after 4 seconds (only once per 7 days)
         setTimeout(() => {
             openGiveaway();
-        }, 2000);
+        }, 4000);
 
         // Giveaway form submission
         document.getElementById('giveawayForm').addEventListener('submit', (e) => {
