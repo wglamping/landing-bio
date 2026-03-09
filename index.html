@@ -430,6 +430,178 @@
             60% { transform: translateX(-50%) translateY(-5px); }
         }
 
+        /* Hero Social Proof */
+        .hero-social-proof {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.6s backwards;
+        }
+
+        .hero-proof-item {
+            text-align: center;
+        }
+
+        .hero-proof-stars {
+            color: var(--gold);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero-proof-item p {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-proof-item cite {
+            font-size: 0.75rem;
+            font-style: normal;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-proof-divider {
+            width: 1px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-social-proof {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero-proof-divider {
+                width: 40px;
+                height: 1px;
+            }
+        }
+
+        /* Giveaway Popup */
+        .giveaway-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .giveaway-overlay.active {
+            display: flex;
+        }
+
+        .giveaway-popup {
+            background: var(--white);
+            max-width: 480px;
+            margin: 1.5rem;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .giveaway-popup .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--charcoal);
+            cursor: pointer;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .giveaway-popup .modal-close:hover {
+            opacity: 1;
+        }
+
+        .giveaway-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .giveaway-popup h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--forest-deep);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .giveaway-popup p {
+            color: var(--charcoal);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .giveaway-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .giveaway-form input[type="email"] {
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--warm-sand);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: border-color 0.3s ease;
+        }
+
+        .giveaway-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--forest-deep);
+        }
+
+        .giveaway-form button {
+            background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-mid) 100%);
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .giveaway-form button:hover {
+            background: linear-gradient(135deg, var(--forest-mid) 0%, var(--forest-deep) 100%);
+            transform: translateY(-1px);
+        }
+
+        .giveaway-disclaimer {
+            font-size: 0.8rem;
+            color: var(--charcoal);
+            opacity: 0.5;
+            margin-top: 0.75rem;
+        }
+
         /* Lightbox Gallery */
         .image-card {
             cursor: pointer;
@@ -622,6 +794,93 @@
             }
             .testimonial-strip {
                 padding: 2.5rem 2rem;
+            }
+        }
+
+        /* Quick-Scan Icon Strip */
+        .icon-strip {
+            background: var(--white);
+            padding: 2rem 2rem;
+            border-bottom: 1px solid rgba(26, 58, 46, 0.06);
+        }
+
+        .icon-strip-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .icon-strip-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--forest-deep);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        .icon-strip-icon {
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+
+        .icon-strip-sep {
+            color: var(--warm-sand);
+            font-size: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .icon-strip-inner {
+                gap: 1rem 1.5rem;
+                justify-content: center;
+            }
+            .icon-strip-sep {
+                display: none;
+            }
+            .icon-strip-item {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Social Proof Callout Bar */
+        .proof-bar {
+            background: var(--forest-deep);
+            padding: 1.25rem 2rem;
+            text-align: center;
+        }
+
+        .proof-bar-text {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+        }
+
+        .proof-bar-stars {
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-right: 0.5rem;
+        }
+
+        .proof-bar-sep {
+            margin: 0 0.75rem;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 768px) {
+            .proof-bar-text {
+                font-size: 0.85rem;
+            }
+            .proof-bar-sep {
+                display: block;
+                margin: 0.25rem 0;
+                visibility: hidden;
             }
         }
 
@@ -1764,15 +2023,36 @@
             <div class="hero-features">
                 <div class="hero-feature">Designed for Two. Room for Four.</div>
                 <div class="hero-feature">Hot Tub Under the Stars</div>
-                <div class="hero-feature">4.96★ from 50+ Guests</div>
+                <div class="hero-feature">4.96★ from 100+ Guests</div>
             </div>
 
             <p class="hero-subtitle">No neighbors. No distractions. Just you and the kind of quiet that changes something.</p>
             
             <div class="hero-cta">
-                <a href="#inside" class="btn-primary">See Inside</a>
-                <a href="#" onclick="event.preventDefault(); openBookingPopup();" class="hero-secondary">Book Now</a>
-                <span style="color: rgba(255,255,255,0.55); font-size: 0.82rem; font-weight: 400; letter-spacing: 0.03em; margin-top: 0.25rem;">Starting from $300/night · 2-night minimum</span>
+                <a href="https://wanderglamping.hospitable.rentals/#availability" class="btn-primary">Book Now</a>
+                <a href="#inside" class="hero-secondary">See Inside</a>
+                <span style="color: rgba(255,255,255,0.55); font-size: 0.82rem; font-weight: 400; letter-spacing: 0.03em; margin-top: 0.25rem;">Starting from $300/night</span>
+            </div>
+
+            <!-- Hero Social Proof -->
+            <div class="hero-social-proof">
+                <div class="hero-proof-item">
+                    <div class="hero-proof-stars">★★★★★</div>
+                    <p>"Best Airbnb we've ever stayed at."</p>
+                    <cite>— Cassie</cite>
+                </div>
+                <div class="hero-proof-divider"></div>
+                <div class="hero-proof-item">
+                    <div class="hero-proof-stars">★★★★★</div>
+                    <p>"Unforgettable. We felt celebrated."</p>
+                    <cite>— Tatiana</cite>
+                </div>
+                <div class="hero-proof-divider"></div>
+                <div class="hero-proof-item">
+                    <div class="hero-proof-stars">★★★★★</div>
+                    <p>"Rain on the dome was pure calm."</p>
+                    <cite>— Patrick</cite>
+                </div>
             </div>
         </div>
 
@@ -1816,6 +2096,32 @@
         </div>
     </section>
 
+    <!-- SOCIAL PROOF BAR -->
+    <div class="proof-bar">
+        <p class="proof-bar-text">
+            <span class="proof-bar-stars">★★★★★</span> 4.96 average from 100+ guests
+            <span class="proof-bar-sep">·</span>
+            Top 5% Most Loved Home on Airbnb
+            <span class="proof-bar-sep">·</span>
+            Superhost
+        </p>
+    </div>
+
+    <!-- QUICK-SCAN ICON STRIP -->
+    <section class="icon-strip">
+        <div class="icon-strip-inner">
+            <div class="icon-strip-item"><span class="icon-strip-icon">🛁</span> Private Hot Tub</div>
+            <span class="icon-strip-sep">·</span>
+            <div class="icon-strip-item"><span class="icon-strip-icon">🏗</span> 850 sq ft Dome</div>
+            <span class="icon-strip-sep">·</span>
+            <div class="icon-strip-item"><span class="icon-strip-icon">🌲</span> 15 Private Acres</div>
+            <span class="icon-strip-sep">·</span>
+            <div class="icon-strip-item"><span class="icon-strip-icon">🔥</span> Fire Pit & Stargazing</div>
+            <span class="icon-strip-sep">·</span>
+            <div class="icon-strip-item"><span class="icon-strip-icon">📍</span> 90 min from Dallas</div>
+        </div>
+    </section>
+
     <!-- WHAT MAKES IT DIFFERENT -->
     <section class="section what-makes-different" id="experience">
         <div class="container">
@@ -1824,13 +2130,7 @@
                 <div class="section-body">
                     <p>Not scrolled-in-bed rest. Not "vacation but still checking email" rest. <strong>Real rest.</strong> The kind where you finally stop running the mental checklist.</p>
                     
-                    <p><strong>Wake up slowly.</strong> Eighteen feet of windows face nothing but forest. No alarms. No checkout pressure. Just light filtering through pine trees and a 20-foot ceiling that opens to the sky through a retractable sunroof.</p>
-                    
-                    <p><strong>Do nothing, beautifully.</strong> Sink into furniture carved from single slabs of Indonesian hardwood. Soak in the hot tub as steam rises into the stars. Fall asleep listening to rain on the dome.</p>
-                    
-                    <p><strong>Stay connected (or don't).</strong> Starlink delivers real high-speed internet throughout the property. Work remotely if you want. Or leave your laptop in the car and forget what day it is.</p>
-
-                    <p>This isn't camping with nice sheets. <strong>It's what happens when someone builds a place specifically designed to help you exhale.</strong></p>
+                    <p>Wake up to eighteen feet of windows facing nothing but forest. Sink into furniture carved from single slabs of Indonesian hardwood. Soak in the hot tub as steam rises into the stars. Fall asleep listening to rain on the dome. This isn't camping with nice sheets — <strong>it's what happens when someone builds a place specifically designed to help you exhale.</strong></p>
                 </div>
                 
                 <div style="margin-top: 2rem;">
@@ -2012,34 +2312,6 @@
         </div>
     </section>
 
-    <!-- SOCIAL PROOF -->
-    <section class="section social-proof">
-        <div class="container">
-            <div class="section-intro fade-in-up">
-                <h2 class="section-title">What Guests Say</h2>
-                <p class="proof-stat">Top 5% of Most Loved Homes · 4.96★ Average · Airbnb Superhost</p>
-            </div>
-
-            <div class="testimonials">
-                <div class="testimonial fade-in-up">
-                    <p class="testimonial-quote">"Hand's down the best Airbnb experience we've ever had."</p>
-                    <p class="testimonial-body">"We could feel the love and care in every detail. Immaculately clean, high-end, and thoughtfully prepared without losing warmth or charm. A true 10/10 stay."</p>
-                    <p class="testimonial-author">— Cassie, Father's Day Getaway</p>
-                </div>
-                <div class="testimonial fade-in-up">
-                    <p class="testimonial-quote">"An unforgettable anniversary stay."</p>
-                    <p class="testimonial-body">"From the moment we arrived, it was clear how much thought went into everything. Beautifully decorated, spotless, and genuinely above-and-beyond hospitality. We felt celebrated."</p>
-                    <p class="testimonial-author">— Tatiana, Anniversary Trip</p>
-                </div>
-                <div class="testimonial fade-in-up">
-                    <p class="testimonial-quote">"Falling asleep to rain on the dome was unforgettable."</p>
-                    <p class="testimonial-body">"Watching the rain through the skylight and drifting off to the sound hitting the dome was pure calm. Peaceful, cozy, and incredibly well-designed."</p>
-                    <p class="testimonial-author">— Patrick, Weekend Stay</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- EMAIL CAPTURE -->
     <section class="email-capture">
         <div class="email-capture-inner fade-in-up">
@@ -2054,23 +2326,6 @@
                     <p style="font-size: 1.5rem; margin: 0 0 0.5rem 0; color: white;">✓ You're In!</p>
                     <p style="margin: 0; opacity: 0.9; color: white;">Check your email for private access details.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AVAILABILITY -->
-    <section class="section availability" id="availability">
-        <div class="container">
-            <div class="section-intro fade-in-up">
-                <h2 class="section-title">Ready?</h2>
-                <div class="availability-body">
-                    <p style="font-size: 1.15rem;">We keep availability limited—quiet matters more than full calendars. Weekends fill first. Weekdays are where the real rest happens.</p>
-                    <div class="scarcity-indicator">
-                        Currently: 3 dates available in February · 8 dates in March<br>
-                        <span style="font-size: 0.95rem; opacity: 0.8;">(Updated weekly)</span>
-                    </div>
-                </div>
-                <a href="https://wanderglamping.hospitable.rentals/#availability" class="btn-availability">See What's Open</a>
             </div>
         </div>
     </section>
@@ -2200,55 +2455,26 @@
         <p>© 2026 Wander Glamping<span class="footer-separator">·</span><a href="https://gowanderglamping.com/privacy-policy" target="_blank">Privacy Policy</a></p>
     </footer>
 
-    <!-- EXIT INTENT MODAL -->
-    <div class="modal-overlay" id="exitModal">
-        <div class="modal">
-            <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
-            <h3>Still thinking?</h3>
-            <p>Most people take a few weeks before they book. That's fine.<br><br>We'll let you know when good dates open up—including last-minute cancellations and quiet weekdays.</p>
-            <form class="modal-form" id="exitModalForm">
-                <input type="email" class="email-input" placeholder="Enter your email" required>
-                <button type="submit" class="btn-email">Keep Me Posted</button>
-            </form>
-        </div>
-    </div>
+    <!-- Exit intent now triggers the giveaway popup -->
 
-    <!-- BOOKING INTENT POPUP -->
-    <div class="booking-popup-overlay" id="bookingPopup">
-        <div class="booking-popup">
-            <div id="bookingPopupContent">
-                <div class="booking-popup-icon">🎁</div>
-                <h3>Want a free welcome gift?</h3>
-                <p>Drop your email and we'll include a little something special with your stay.</p>
-                
-                <div class="booking-perks">
-                    <div class="booking-perk">
-                        <span class="booking-perk-icon">🍫</span>
-                        <span class="booking-perk-label">S'mores Kit</span>
-                    </div>
-                    <div class="booking-perk">
-                        <span class="booking-perk-icon">🧺</span>
-                        <span class="booking-perk-label">Snack Basket</span>
-                    </div>
-                    <div class="booking-perk">
-                        <span class="booking-perk-icon">✨</span>
-                        <span class="booking-perk-label">Surprise Extras</span>
-                    </div>
-                </div>
-
-                <form class="booking-popup-form" id="bookingPopupForm">
+    <!-- FREE STAY GIVEAWAY POPUP -->
+    <div class="giveaway-overlay" id="giveawayPopup">
+        <div class="giveaway-popup">
+            <button class="modal-close" onclick="closeGiveaway()" aria-label="Close">&times;</button>
+            <div id="giveawayContent">
+                <div class="giveaway-icon">✦</div>
+                <h3>Your Escape Might Be on Us</h3>
+                <p>We periodically draw a name from our list and gift them a complimentary glamping stay. Enter below and we'll let you know if it's you.</p>
+                <form class="giveaway-form" id="giveawayForm">
                     <input type="email" name="email" placeholder="Your email" required>
-                    <button type="submit">Yes please!</button>
+                    <button type="submit">Enter the Drawing</button>
                 </form>
-                
-                <button class="booking-popup-skip" id="skipToBooking">No thanks, continue to booking →</button>
+                <p class="giveaway-disclaimer">No spam. Just a heads-up if you win, plus occasional updates from the property.</p>
             </div>
-
-            <div class="booking-popup-success" id="bookingPopupSuccess">
-                <div class="booking-popup-icon">🎉</div>
-                <h3>You're all set!</h3>
-                <p>Your welcome gift will be waiting. Now let's find your perfect dates...</p>
-                <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 1rem;">Redirecting to booking...</p>
+            <div id="giveawaySuccess" style="display: none;">
+                <div class="giveaway-icon">✓</div>
+                <h3 style="font-family: var(--font-display); font-size: 2rem; color: var(--forest-deep); margin-bottom: 0.5rem;">You're Entered</h3>
+                <p style="color: var(--charcoal); font-size: 1.05rem; opacity: 0.85;">We'll be in touch if your name comes up. In the meantime, take a look around.</p>
             </div>
         </div>
     </div>
@@ -2282,25 +2508,49 @@
         const trafficSource = getUTMSource();
 
         // ═══════════════════════════════════════════════════════════════════
-        // BOOKING POPUP FUNCTIONS
+        // GIVEAWAY POPUP
         // ═══════════════════════════════════════════════════════════════════
         
-        function openBookingPopup() {
-            document.getElementById('bookingPopup').classList.add('active');
+        let giveawayShown = false;
+        const GIVEAWAY_COOKIE = 'wander_giveaway_seen';
+
+        function hasSeenGiveaway() {
+            return document.cookie.split(';').some(c => c.trim().startsWith(GIVEAWAY_COOKIE + '='));
         }
 
-        function closeBookingPopup() {
-            document.getElementById('bookingPopup').classList.remove('active');
+        function setGiveawayCookie() {
+            const expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toUTCString();
+            document.cookie = GIVEAWAY_COOKIE + '=true; expires=' + expires + '; path=/; SameSite=Lax';
         }
 
-        function goToBooking() {
-            closeBookingPopup();
-            // FIXED: Use window.location.href instead of window.open to work on mobile Safari/Chrome
-            window.location.href = BOOKING_URL;
+        function openGiveaway() {
+            if (!giveawayShown && !hasSeenGiveaway()) {
+                document.getElementById('giveawayPopup').classList.add('active');
+                giveawayShown = true;
+                setGiveawayCookie();
+                fbq('track', 'ViewContent', {
+                    content_name: 'Free Stay Giveaway Popup',
+                    content_category: 'Engagement'
+                });
+            }
         }
 
-        // Handle booking popup form submission
-        document.getElementById('bookingPopupForm').addEventListener('submit', (e) => {
+        function closeGiveaway() {
+            document.getElementById('giveawayPopup').classList.remove('active');
+        }
+
+        // Close on overlay click
+        document.getElementById('giveawayPopup').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeGiveaway();
+        });
+
+        // Show giveaway popup after 2 seconds (only once per 7 days)
+        setTimeout(() => {
+            openGiveaway();
+        }, 2000);
+
+        // Giveaway form submission
+        document.getElementById('giveawayForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const form = e.target;
             const email = form.querySelector('input[type="email"]').value;
@@ -2309,47 +2559,29 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
-                    email: email,
-                    source: 'booking_intent',
-                    traffic_source: trafficSource
+                    email: email, 
+                    source: 'free_stay_giveaway', 
+                    traffic_source: trafficSource 
                 })
             })
             .then(response => response.json())
             .then(() => {
-                document.getElementById('bookingPopupContent').style.display = 'none';
-                document.getElementById('bookingPopupSuccess').classList.add('show');
-                
-                fbq('track', 'Lead', {
-                    content_name: 'Booking Intent Popup',
-                    content_category: 'booking_intent'
+                document.getElementById('giveawayContent').style.display = 'none';
+                document.getElementById('giveawaySuccess').style.display = 'block';
+                fbq('track', 'Lead', { 
+                    content_name: 'Free Stay Giveaway', 
+                    content_category: 'free_stay_giveaway' 
                 });
-                
-                setTimeout(goToBooking, 2000);
+                setTimeout(closeGiveaway, 2500);
             })
             .catch(err => {
                 console.error('Error:', err);
-                setTimeout(goToBooking, 2000);
+                document.getElementById('giveawayContent').style.display = 'none';
+                document.getElementById('giveawaySuccess').style.display = 'block';
+                setTimeout(closeGiveaway, 2500);
             });
         });
 
-        // Skip button - go directly to booking
-        document.getElementById('skipToBooking').addEventListener('click', () => {
-            goToBooking();
-        });
-
-        // Intercept all booking link clicks
-        document.querySelectorAll('a[href*="hospitable"], .btn-availability').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                openBookingPopup();
-                
-                fbq('track', 'InitiateCheckout', {
-                    content_name: 'Booking Button Click',
-                    content_category: 'CTA Click'
-                });
-            });
-        });
-        
         // ═══════════════════════════════════════════════════════════════════
         // FACEBOOK PIXEL
         // ═══════════════════════════════════════════════════════════════════
@@ -2394,40 +2626,15 @@
             });
         });
 
-        // Exit Intent Detection
-        let modalShown = false;
-        let mouseLeaveTimeout;
-
+        // Exit Intent — triggers giveaway popup instead of separate modal
         document.addEventListener('mouseleave', (e) => {
-            if (!modalShown && e.clientY < 10) {
-                clearTimeout(mouseLeaveTimeout);
-                mouseLeaveTimeout = setTimeout(() => {
-                    showModal();
-                }, 500);
+            if (!giveawayShown && e.clientY < 10) {
+                setTimeout(() => { openGiveaway(); }, 500);
             }
-        });
-
-        function showModal() {
-            if (!modalShown) {
-                document.getElementById('exitModal').classList.add('active');
-                modalShown = true;
-                fbq('track', 'ViewContent', {
-                    content_name: 'Exit Intent Modal',
-                    content_category: 'Engagement'
-                });
-            }
-        }
-
-        function closeModal() {
-            document.getElementById('exitModal').classList.remove('active');
-        }
-
-        document.getElementById('exitModal').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) closeModal();
         });
 
         // ═══════════════════════════════════════════════════════════════════
-        // FORM SUBMISSIONS
+        // FORM SUBMISSIONS (inline email capture + questions form)
         // ═══════════════════════════════════════════════════════════════════
 
         function handleFormSubmit(e, source) {
@@ -2442,15 +2649,8 @@
             })
             .then(response => response.json())
             .then(() => {
-                if (source === 'exit_intent') {
-                    document.querySelector('#exitModal .modal h3').textContent = "✓ You're On The List!";
-                    document.querySelector('#exitModal .modal p').textContent = "We'll notify you when quiet dates open up.";
-                    document.querySelector('#exitModal .modal-form').style.display = 'none';
-                    setTimeout(closeModal, 2500);
-                } else {
-                    form.style.display = 'none';
-                    document.getElementById('emailCaptureSuccess').style.display = 'block';
-                }
+                form.style.display = 'none';
+                document.getElementById('emailCaptureSuccess').style.display = 'block';
                 form.reset();
                 fbq('track', 'Lead', { content_name: 'Email Capture', content_category: source });
             })
@@ -2464,10 +2664,6 @@
 
         document.getElementById('emailCaptureForm').addEventListener('submit', (e) => {
             handleFormSubmit(e, 'inline_capture');
-        });
-
-        document.getElementById('exitModalForm').addEventListener('submit', (e) => {
-            handleFormSubmit(e, 'exit_intent');
         });
 
         // Questions form
@@ -2595,7 +2791,7 @@
         }, { passive: true });
 
         // ═══════════════════════════════════════════════════════════════════
-        // FLOATING BOOK NOW BUTTON
+        // FLOATING BOOK NOW BUTTON (direct to booking - no popup)
         // ═══════════════════════════════════════════════════════════════════
 
         const floatingBtn = document.getElementById('floatingBookBtn');
@@ -2615,13 +2811,21 @@
         window.addEventListener('scroll', handleFloatingBtn, { passive: true });
         handleFloatingBtn();
 
-        // Intercept floating button click to show booking popup
-        floatingBtn.querySelector('a').addEventListener('click', (e) => {
-            e.preventDefault();
-            openBookingPopup();
+        // Track floating button click (no popup interception)
+        floatingBtn.querySelector('a').addEventListener('click', () => {
             fbq('track', 'InitiateCheckout', {
                 content_name: 'Floating Book Button',
                 content_category: 'CTA Click'
+            });
+        });
+
+        // Track all booking link clicks (no popup interception)
+        document.querySelectorAll('a[href*="hospitable"], .btn-availability').forEach(link => {
+            link.addEventListener('click', () => {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: 'Booking Button Click',
+                    content_category: 'CTA Click'
+                });
             });
         });
     </script>
